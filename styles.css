@@ -8,3 +8,63 @@ body {
     margin: auto;
     padding: 1em;
   }
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+
+header label {
+  margin-left: auto;
+}
+
+#selected-time,
+#any-time {
+  display: block;
+}
+
+#any-time {
+  color: #666;
+  font-style: italic;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  margin-block: 1em;
+  font-size: 0.9em;
+}
+
+.legend::before {
+  content: 'Traffic flow:';
+  font-weight: 600;
+  color: #333;
+  margin-right: 0.5em;
+}
+
+.legend > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: #555;
+}
+
+.legend-circle {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  background-color: var(--color);
+}
